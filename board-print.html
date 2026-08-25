@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Lead Automation — n8n × GoHighLevel</title>
+<style>
+  @page{ size:A4 portrait; margin:0; }
+  *{box-sizing:border-box; margin:0; padding:0}
+  :root{
+    --ink:#0f1b3d; --muted:#5b6b93; --line:#dfe5f3; --accent:#3a6bff;
+    --accent2:#eaf0ff; --green:#16a06a; --greenbg:#e7f7ef; --amber:#b5760a; --card:#ffffff; --bg:#f5f7fd;
+  }
+  html,body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); }
+  .page{ width:210mm; min-height:297mm; padding:12mm 16mm; margin:0 auto; background:var(--bg); }
+
+  .top{ display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid var(--line); padding-bottom:14px; margin-bottom:22px; }
+  .kicker{ color:var(--accent); font-weight:800; letter-spacing:.14em; text-transform:uppercase; font-size:10px; }
+  h1{ font-size:26px; line-height:1.15; letter-spacing:-.02em; margin-top:6px; }
+  h1 b{ color:var(--accent); }
+  .lede{ color:var(--muted); font-size:13px; max-width:120mm; margin-top:6px; }
+  .who{ text-align:right; font-size:11px; color:var(--muted); }
+  .who .name{ font-weight:800; color:var(--ink); font-size:13px; }
+
+  .chips{ display:flex; gap:6px; flex-wrap:wrap; margin:12px 0 16px; }
+  .chip{ font-size:10.5px; background:var(--accent2); color:#2b4bb0; border:1px solid #cdd8ff; padding:4px 9px; border-radius:999px; font-weight:600; }
+
+  .flow{ display:flex; flex-direction:column; align-items:center; gap:0; }
+  .node{
+    width:100%; background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:13px 18px; display:flex; gap:16px; align-items:flex-start; box-shadow:0 8px 22px -18px #1b2a55;
+  }
+  .num{ flex:0 0 auto; width:34px; height:34px; border-radius:10px; background:var(--accent); color:#fff; font-weight:800; font-size:15px; display:grid; place-items:center; }
+  .node h2{ font-size:16px; letter-spacing:-.01em; }
+  .node p{ color:var(--muted); font-size:12.5px; margin-top:3px; }
+  .node .meta{ margin-top:8px; font-size:11px; color:#2b4bb0; background:var(--accent2); border:1px solid #cdd8ff; display:inline-block; padding:3px 8px; border-radius:7px; }
+  .node .meta.g{ color:#0d7a4f; background:var(--greenbg); border-color:#bce9d3; }
+  .conn{ width:2px; height:22px; background:var(--accent); position:relative; }
+  .conn:after{ content:"▼"; position:absolute; left:50%; bottom:-4px; transform:translateX(-50%); color:var(--accent); font-size:11px; }
+
+  .result{ margin-top:18px; background:#0f1b3d; color:#fff; border-radius:14px; padding:18px 22px; }
+  .result h3{ font-size:15px; margin-bottom:14px; letter-spacing:.01em; }
+  .checks{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .check{ display:flex; gap:10px; align-items:flex-start; }
+  .tick{ flex:0 0 auto; width:20px; height:20px; border-radius:50%; background:var(--green); color:#fff; font-size:12px; font-weight:800; display:grid; place-items:center; }
+  .check b{ display:block; font-size:12.5px; }
+  .check span{ color:#aab8de; font-size:11px; }
+
+  .foot{ margin-top:16px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:11px; border-top:1px solid var(--line); padding-top:10px; }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="top">
+      <div>
+        <div class="kicker">Live build · n8n × GoHighLevel</div>
+        <h1>New lead → <b>instant reply</b>, fully automated</h1>
+        <div class="lede">A website form submission becomes a scored CRM contact and an automatic email back to the lead — with no human in the loop. Built and tested on a live instance.</div>
+      </div>
+      <div class="who">
+        <div class="name">Sergios</div>
+        Automation &amp; AI Integration<br>n8n · GoHighLevel · Webhooks
+      </div>
+    </div>
+
+    <div class="chips">
+      <span class="chip">Webhook intake</span>
+      <span class="chip">Field normalization</span>
+      <span class="chip">Validation</span>
+      <span class="chip">Lead scoring (hot / warm / cold)</span>
+      <span class="chip">GoHighLevel API</span>
+      <span class="chip">Tag-triggered auto-email</span>
+    </div>
+
+    <div class="flow">
+
+      <div class="node">
+        <div class="num">1</div>
+        <div>
+          <h2>Lead captured via webhook</h2>
+          <p>A form, ad, or landing page posts the lead to an n8n webhook endpoint. Fields are cleaned and standardized.</p>
+          <span class="meta">POST → /webhook/new-lead</span>
+        </div>
+      </div>
+      <div class="conn"></div>
+
+      <div class="node">
+        <div class="num">2</div>
+        <div>
+          <h2>Validated &amp; scored in n8n</h2>
+          <p>Missing-data leads are rejected; valid ones are scored on business email, phone and message detail, then labelled hot, warm, or cold.</p>
+          <span class="meta">Auto-scoring · routing logic</span>
+        </div>
+      </div>
+      <div class="conn"></div>
+
+      <div class="node">
+        <div class="num">3</div>
+        <div>
+          <h2>Contact created in GoHighLevel</h2>
+          <p>The lead is pushed into the CRM via API and auto-tagged <b>new-lead</b> plus its temperature — zero manual entry.</p>
+          <span class="meta g">Real contacts created live</span>
+        </div>
+      </div>
+      <div class="conn"></div>
+
+      <div class="node">
+        <div class="num">4</div>
+        <div>
+          <h2>Instant auto-response email</h2>
+          <p>A GoHighLevel workflow triggers on the <b>new-lead</b> tag and emails the lead immediately — delivered to a real inbox in seconds.</p>
+          <span class="meta g">Verified: email received</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="result">
+      <h3>Every requirement — done &amp; proven</h3>
+      <div class="checks">
+        <div class="check"><div class="tick">✓</div><div><b>Lead source connected via webhook</b><span>Works with a form, ad, or website</span></div></div>
+        <div class="check"><div class="tick">✓</div><div><b>One n8n workflow built</b><span>Normalize → validate → score → sync</span></div></div>
+        <div class="check"><div class="tick">✓</div><div><b>Automated lead-response action</b><span>Instant email on the new-lead tag</span></div></div>
+        <div class="check"><div class="tick">✓</div><div><b>Demonstrated working end-to-end</b><span>Live runs · real contacts · real inbox</span></div></div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div>Ready to connect to your live lead source and extend into SMS, voice agents &amp; calendar routing.</div>
+      <div>Prepared for review</div>
+    </div>
+
+  </div>
+</body>
+</html>

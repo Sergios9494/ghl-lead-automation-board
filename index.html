@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lead Automation — n8n × GoHighLevel · Case Study</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#141a2e; --panel2:#1b2340; --ink:#eaf0ff;
+    --muted:#9aa8d0; --line:#2a3456; --accent:#5b8cff; --green:#31d07f;
+    --amber:#ffb020; --chip:#232c4d;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:radial-gradient(1200px 700px at 70% -10%,#1a2b55 0,transparent 60%),var(--bg);
+    color:var(--ink); font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:48px 28px 80px}
+  .kicker{color:var(--accent); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:12px}
+  h1{font-size:40px; line-height:1.1; margin:10px 0 8px; letter-spacing:-.02em}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--muted); font-size:18px; max-width:760px}
+  .stack{color:var(--muted); font-size:13px; margin-top:14px; display:flex; gap:8px; flex-wrap:wrap}
+  .tag{background:var(--chip); border:1px solid var(--line); padding:5px 11px; border-radius:999px; color:#cdd8ff}
+
+  .flow{margin-top:40px; display:flex; flex-direction:column; gap:14px}
+  .step{
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+    border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    box-shadow:0 20px 50px -30px #000;
+  }
+  .step-head{display:flex; align-items:center; gap:14px; padding:18px 22px}
+  .num{
+    flex:0 0 auto; width:36px; height:36px; border-radius:10px; display:grid; place-items:center;
+    background:var(--accent); color:#04102e; font-weight:800; font-size:16px;
+  }
+  .step-head h2{margin:0; font-size:19px; letter-spacing:-.01em}
+  .step-head p{margin:2px 0 0; color:var(--muted); font-size:14px}
+  .shot{background:#0a0f1e; border-top:1px solid var(--line); padding:14px}
+  .shot img{width:100%; display:block; border-radius:10px; border:1px solid var(--line)}
+  .ph{
+    width:100%; aspect-ratio:16/8; border:2px dashed var(--line); border-radius:10px;
+    display:grid; place-items:center; color:var(--muted); text-align:center; font-size:14px; padding:20px;
+    background:repeating-linear-gradient(45deg,#0c1226,#0c1226 12px,#0e1530 12px,#0e1530 24px);
+  }
+  .ph code{color:#cdd8ff; background:#1a2242; padding:2px 8px; border-radius:6px}
+  .arrow{align-self:center; color:var(--accent); font-size:22px; opacity:.8; margin:-4px 0}
+
+  .cap{margin:0 22px 4px; color:#c3cef0; font-size:14px; line-height:1.5}
+  .cap b{color:var(--ink)}
+  .callout{
+    margin:6px 22px 20px; display:inline-flex; gap:10px; align-items:center;
+    background:#10233a; border:1px solid #23507e; color:#bfe3ff; padding:9px 14px; border-radius:10px; font-size:14px;
+  }
+  .callout.green{background:#0f2a1e; border-color:#1f6b46; color:#b8f4d5}
+  .callout.amber{background:#2a2210; border-color:#6b551f; color:#f4e2b8}
+
+  .result{
+    margin-top:44px; background:linear-gradient(180deg,#101a33,#0e1730);
+    border:1px solid var(--line); border-radius:18px; padding:26px 28px;
+  }
+  .result h3{margin:0 0 16px; font-size:20px}
+  .checks{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .check{display:flex; gap:12px; align-items:flex-start; background:#0d1428; border:1px solid var(--line); border-radius:12px; padding:14px}
+  .tick{flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:var(--green); color:#04220f; font-weight:800; display:grid; place-items:center; font-size:14px}
+  .check b{display:block; font-size:14px}
+  .check span{color:var(--muted); font-size:13px}
+
+  .foot{margin-top:34px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:13px}
+  .brand{font-weight:700; color:var(--ink)}
+  @media(max-width:720px){ h1{font-size:30px} .checks{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Live build · n8n × GoHighLevel</div>
+  <h1>A new lead becomes an <span>instant reply</span> — fully automated.</h1>
+  <p class="sub">Website form → n8n workflow → lead scored → contact created in GoHighLevel → automatic email back to the lead. Built and tested live. Every screenshot below is from a real run.</p>
+  <div class="stack">
+    <span class="tag">n8n</span><span class="tag">Webhook</span><span class="tag">Lead scoring</span>
+    <span class="tag">GoHighLevel API</span><span class="tag">Auto-response</span>
+  </div>
+
+  <div class="flow">
+
+    <!-- 1 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="num">1</div>
+        <div><h2>The n8n workflow</h2><p>Lead hits a webhook → fields cleaned → validated → scored hot / warm / cold → pushed to GoHighLevel.</p></div>
+      </div>
+      <div class="shot">
+        <img src="01-n8n-workflow.png" alt="n8n workflow" onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Save your n8n canvas screenshot here as &lt;code&gt;01-n8n-workflow.png&lt;/code&gt;&lt;/div&gt;'">
+      </div>
+      <p class="cap"><b>What this shows:</b> the complete automation I built in n8n. A new lead hits a live webhook, its fields are cleaned and standardised, checked for missing data, then scored and pushed straight into your CRM — no code for you to touch and no manual copy-paste.</p>
+      <div class="callout">Every lead is auto-scored on business email, phone and message detail — hot leads surface instantly.</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- 2 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="num">2</div>
+        <div><h2>The GoHighLevel automation</h2><p>When a contact is tagged <b>new-lead</b>, GHL fires an instant email back to the lead.</p></div>
+      </div>
+      <div class="shot">
+        <img src="02-ghl-automation.png" alt="GHL automation" onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Save your GHL workflow (Contact Tag → Email) screenshot here as &lt;code&gt;02-ghl-automation.png&lt;/code&gt;&lt;/div&gt;'">
+      </div>
+      <p class="cap"><b>What this shows:</b> the response side, built inside GoHighLevel. The moment a contact is tagged <b>new-lead</b>, this workflow fires an email back to the lead automatically — so nobody has to be at their desk for the lead to get an instant reply.</p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- 3 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="num">3</div>
+        <div><h2>Contact created automatically</h2><p>The lead lands in GoHighLevel, tagged and scored — no manual entry.</p></div>
+      </div>
+      <div class="shot">
+        <img src="03-ghl-contacts.png" alt="GHL contacts" onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Save your GHL Contacts list screenshot here as &lt;code&gt;03-ghl-contacts.png&lt;/code&gt;&lt;/div&gt;'">
+      </div>
+      <p class="cap"><b>What this shows:</b> proof it actually ran. This is your live GoHighLevel Contacts list with a real lead that the automation created — already tagged and scored. No one typed it in; it appeared the second the form was submitted.</p>
+      <div class="callout green">Real contacts created live — tagged <b>new-lead</b> + their temperature.</div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <!-- 4 -->
+    <div class="step">
+      <div class="step-head">
+        <div class="num">4</div>
+        <div><h2>The lead gets an instant email</h2><p>Delivered to a real inbox seconds after the form was submitted.</p></div>
+      </div>
+      <div class="shot">
+        <img src="04-email-received.png" alt="Email received" onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Save your Gmail inbox screenshot here as &lt;code&gt;04-email-received.png&lt;/code&gt;&lt;/div&gt;'">
+      </div>
+      <p class="cap"><b>What this shows:</b> the end result from the lead's point of view — a real email landing in a real inbox, seconds after the form went in. This is the whole loop closed: capture → CRM → instant reply, fully hands-off.</p>
+      <div class="callout green">“Thanks for reaching out — we got your message…” — arrived in the inbox in seconds.</div>
+    </div>
+
+  </div>
+
+  <!-- Miro board -->
+  <div class="step" style="margin-top:44px">
+    <div class="step-head">
+      <div class="num">★</div>
+      <div><h2>The whole flow on one board</h2><p>Interactive Miro board — pan and zoom the full lead-automation map.</p></div>
+    </div>
+    <div class="shot">
+      <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:10px; overflow:hidden; border:1px solid var(--line)">
+        <iframe
+          src="https://miro.com/app/live-embed/uXjVHuG9-pc=/?embedMode=view_only_without_ui&moveToViewport=-3189,-2563,12645,6085&embedId=620891478062"
+          style="position:absolute; inset:0; width:100%; height:100%; border:0"
+          allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen
+          title="Lead Automation board"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="result">
+    <h3>Every requirement — done and proven</h3>
+    <div class="checks">
+      <div class="check"><div class="tick">✓</div><div><b>Lead source connected via webhook</b><span>n8n receives leads from a form, ad, or site</span></div></div>
+      <div class="check"><div class="tick">✓</div><div><b>One n8n workflow built</b><span>Normalize → validate → score → sync</span></div></div>
+      <div class="check"><div class="tick">✓</div><div><b>Automated lead-response action</b><span>Instant email on the new-lead tag</span></div></div>
+      <div class="check"><div class="tick">✓</div><div><b>Shown working end to end</b><span>Live runs, real contacts, real inbox</span></div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>Ready to point at your lead source &amp; scale into SMS · voice · calendar routing.</div>
+    <div class="brand">Sergios · Automation &amp; AI Integration</div>
+  </div>
+
+</div>
+</body>
+</html>

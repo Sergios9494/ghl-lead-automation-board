@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lead Automation — n8n × GoHighLevel · Board</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#141a2e; --ink:#eaf0ff; --muted:#9aa8d0;
+    --line:#2a3456; --accent:#5b8cff; --chip:#232c4d;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:radial-gradient(1200px 700px at 70% -10%,#1a2b55 0,transparent 60%),var(--bg);
+    color:var(--ink); font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; min-height:100vh;
+  }
+  header{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    padding:16px 24px; border-bottom:1px solid var(--line); background:rgba(11,16,32,.85); backdrop-filter:blur(6px);
+  }
+  .brandline{display:flex; align-items:center; gap:12px}
+  .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 14px var(--accent)}
+  .kicker{color:var(--accent); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:11px}
+  h1{font-size:18px; margin:2px 0 0; letter-spacing:-.01em}
+  .who{color:var(--muted); font-size:13px; text-align:right}
+  .who b{color:var(--ink)}
+  .stage{flex:1; display:flex; padding:18px; min-height:0}
+  .frame{
+    flex:1; position:relative; border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    box-shadow:0 30px 70px -40px #000; background:#0a0f1e; min-height:70vh;
+  }
+  .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+  footer{
+    display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    padding:12px 24px; color:var(--muted); font-size:13px; border-top:1px solid var(--line);
+  }
+  .chips{display:flex; gap:8px; flex-wrap:wrap}
+  .chip{background:var(--chip); border:1px solid var(--line); padding:4px 10px; border-radius:999px; color:#cdd8ff; font-size:12px}
+  @media(max-width:640px){ .stage{padding:10px} .frame{min-height:60vh} h1{font-size:16px} }
+</style>
+</head>
+<body>
+  <header>
+    <div class="brandline">
+      <span class="dot"></span>
+      <div>
+        <div class="kicker">Live build · n8n × GoHighLevel</div>
+        <h1>New lead → instant reply, fully automated</h1>
+      </div>
+    </div>
+    <div class="who"><b>Sergios</b><br>Automation &amp; AI Integration</div>
+  </header>
+
+  <div class="stage">
+    <div class="frame">
+      <iframe
+        src="https://miro.com/app/live-embed/uXjVHuG9-pc=/?embedMode=view_only_without_ui&moveToViewport=-3189,-2563,12645,6085&embedId=620891478062"
+        allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen
+        title="Lead Automation board"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <div class="chips">
+      <span class="chip">Webhook intake</span>
+      <span class="chip">Lead scoring</span>
+      <span class="chip">GoHighLevel API</span>
+      <span class="chip">Tag-triggered auto-email</span>
+    </div>
+    <div>Built &amp; tested live · real contacts · real inbox</div>
+  </footer>
+</body>
+</html>
