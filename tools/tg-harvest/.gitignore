@@ -1,0 +1,6 @@
+# A Telethon session file is full access to the Telegram account. Never commit it.
+*.session
+*.session-journal
+.env
+out/
+__pycache__/
