@@ -2,8 +2,11 @@
 
 > Archived reference for cybersecurity experiments and research.
 > **Author:** Chandler Johnson · **Posted:** May 6, 2026 · **Updated:** Jun 5, 2026 · ~25 min read
-> Saved to repo: 2026-10-31. Full article text plus the workspace/demonstration notes
-> from the accompanying walkthrough. Preserved verbatim as source material to review later.
+> **Source:** https://chndlrx.com/posts/how-to-build-ai-hackbots/
+> **License:** CC BY 4.0 (by the author) · **Contact:** [LinkedIn](https://www.linkedin.com/in/johnsonchandler/) · [X/@chndlrx_](https://x.com/chndlrx_)
+> Saved to repo: 2026-10-31. **Verified verbatim against the live page via Firecrawl on 2026-10-31**
+> (full text confirmed complete; data-source links below are the article's own). Preserved as
+> source material to review later.
 
 ---
 
@@ -177,26 +180,26 @@ Basic prompt flow:
 
 Favorite data sources for web-hacking skill development (a starting point, not exhaustive):
 
-- PortSwigger Web Security Academy
-- PortSwigger Research
-- PortSwigger XSS cheat sheet
-- PortSwigger URL validation bypass cheat sheet
-- OWASP WSTG
-- OWASP vulnerabilities
-- CTBB hacker notes / research lab / writeups
-- Sam Curry's blog
-- Beyond XSS article
-- client-side-bugs-resources
-- portswigger-websecurity-academy (lab solutions and scripts)
-- HackerOne Hacktivity
-- bugbountyhunting.com
-- Awesome-Bugbounty-Writeups
-- PayloadsAllTheThings
-- HackTricks
-- SecLists
-- OneListForAll
-- PayloadBox
-- Bug-Bounty-Wordlists
+- [PortSwigger Web Security Academy](https://portswigger.net/web-security)
+- [PortSwigger Research](https://portswigger.net/research)
+- [PortSwigger XSS cheat sheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+- [PortSwigger URL validation bypass cheat sheet](https://portswigger.net/web-security/ssrf/url-validation-bypass-cheat-sheet)
+- [OWASP WSTG](https://github.com/OWASP/wstg/tree/master/document/4-Web_Application_Security_Testing)
+- [OWASP vulnerabilities](https://owasp.org/www-community/vulnerabilities/)
+- [CTBB hacker notes](https://blog.criticalthinkingpodcast.io/) · [CTBB research lab](https://lab.ctbb.show/) · [CTBB writeups](https://lab.ctbb.show/writeups/all/)
+- [Sam Curry's blog](https://samcurry.net/)
+- [Beyond XSS article](https://aszx87410.github.io/beyond-xss/en/)
+- [client-side-bugs-resources](https://github.com/zomasec/client-side-bugs-resources)
+- [portswigger-websecurity-academy (lab solutions and scripts)](https://github.com/frank-leitner/portswigger-websecurity-academy)
+- [HackerOne Hacktivity](https://hackerone.com/hacktivity)
+- [bugbountyhunting.com](https://www.bugbountyhunting.com/)
+- [Awesome-Bugbounty-Writeups](https://github.com/devanshbatham/Awesome-Bugbounty-Writeups)
+- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+- [HackTricks](https://book.hacktricks.wiki/)
+- [SecLists](https://github.com/danielmiessler/SecLists)
+- [OneListForAll](https://github.com/six2dez/OneListForAll/)
+- [PayloadBox](https://github.com/payload-box)
+- [Bug-Bounty-Wordlists](https://github.com/Karanxa/Bug-Bounty-Wordlists)
 
 You can also transcribe video content — e.g. the Critical Thinking Bug Bounty Podcast
 (youtube.com/@criticalthinkingpodcast) or DEF CON talks — and use the transcript for skill
@@ -529,10 +532,10 @@ store, a Caido MCP. It works. Ideas to go further:
 
 Studying others is one of the fastest ways to improve your own. Popular projects:
 
-- `shuvonsec/claude-bug-bounty`
-- `agamm/claude-code-owasp`
-- `GH05TCREW/pentestagent`
-- `bugbasesecurity/pentest-copilot`
+- [shuvonsec/claude-bug-bounty](https://github.com/shuvonsec/claude-bug-bounty)
+- [agamm/claude-code-owasp](https://github.com/agamm/claude-code-owasp)
+- [GH05TCREW/pentestagent](https://github.com/GH05TCREW/pentestagent)
+- [bugbasesecurity/pentest-copilot](https://github.com/bugbasesecurity/pentest-copilot)
 
 Good questions to ask when studying them:
 
